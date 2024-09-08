@@ -1,32 +1,38 @@
 <?php
-
-if (isset($_POST['submit'])){ 
+if (isset($_POST['submit'])) { 
     $status = 0;
-    $servername = "mysqlsvr83.world4you.com";
-    $username = "sql1405136";
-    $password = "kkvbp*cz";
-    $dbname = "9644840db1";
     
-    $firstname = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "INSERT INTO customers (name, lastname, email, message) VALUES ('$firstname', '$lastName', '$email', '$subject')";
-
-    if ($conn->query($sql) === TRUE) {
-       $status = 1;
-    }
-
-    $conn->close();
+    // Retrieve form data
+    $firstname = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
     
+    // Email recipient
+    $to = "info@codescriptify.at, oreskimatija@gmail.com";
+    
+    // Email subject
+    $email_subject = "New Contact Form Submission from $firstname $lastName";
+    
+    // Email body
+    $email_body = "
+    You have received a new message from your website contact form Croatian.\n\n
+    Here are the details:\n
+    Name: $firstname $lastName\n
+    Email: $email\n
+    Message:\n$subject";
+    
+    // Email headers
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+    // Send the email
+    if (mail($to, $email_subject, $email_body, $headers)) {
+        $status = 1; // Success
+    } else {
+        echo "Error: Email could not be sent.";
+    }
 }
-    
 ?>
 <!doctype html>
 <html>
@@ -115,7 +121,7 @@ $(document).ready(function() {
     	<div id="headerTop">
         	<div class="wrapper">
             	<div id="headerTopLeft">
-					<span style="margin-right:25px;"><i class="fa fa-lg fa-phone"></i>&nbsp;&nbsp;&nbsp;+43 699 19520435</span>
+					<span style="margin-right:25px;"><i class="fa fa-lg fa-phone"></i>&nbsp;&nbsp;&nbsp;+385 95 8552378</span>
 					<span style="margin-right:1px;"><i class="fa fa-lg fa-envelope-o"></i>&nbsp;&nbsp;&nbsp;info@codescriptify.at</span>
                 </div>
             	<div id="headerTopRight">

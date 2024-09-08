@@ -60,7 +60,7 @@ $(document).ready(function() {
     	<div id="headerTop">
         	<div class="wrapper">
             	<div id="headerTopLeft">
-					<span style="margin-right:25px;"><i class="fa fa-lg fa-phone"></i>&nbsp;&nbsp;&nbsp;+43 699 19520435</span>
+					<span style="margin-right:25px;"><i class="fa fa-lg fa-phone"></i>&nbsp;&nbsp;&nbsp;+385 95 8552378</span>
 					<span style="margin-right:1px;"><i class="fa fa-lg fa-envelope-o"></i>&nbsp;&nbsp;&nbsp;info@codescriptify.at</span>
                 </div>
             	<div id="headerTopRight">

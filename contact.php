@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     
     // Email body
     $email_body = "
-    You have received a new message from your website contact form.\n\n
+    You have received a new message from your website contact form Germany.\n\n
     Here are the details:\n
     Name: $firstname $lastName\n
     Email: $email\n
